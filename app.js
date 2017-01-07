@@ -2,11 +2,16 @@ var request = require("request");
 
 var action = process.argv[2];
 
-if(action==="movie-this"){
-	movies();
-} else if(action==="spotify-this-song"){
-	music();
+switch (action){
+	case "movie-this":
+		movies();
+		break;
+
+	case "spotify-this-song":
+		music();
+		break;
 }
+
 
 function movies() {
 	var movieName = process.argv[3];
@@ -42,21 +47,26 @@ function movies() {
 
 function music() {
 	var spotify = require('spotify');
- 
-	spotify.search({ type: 'track', query: 'beauty the beast' }, 
-	function(err, data) {
-	    if ( err ) {
+ 	var trackName = process.argv[3];
+
+ 	if(trackName===undefined){
+ 		trackName = "I Saw The Sign";
+ 	}
+
+	spotify.search({ type: 'track', query: trackName }, function(err, data) {
+	    if (err) {
 	        console.log('Error occurred: ' + err);
 	        return;
 	    }
  		
-    	console.log(data.tracks.items[0].album.name);
+ 		var filteredData = data.tracks.items[0];
+ 		console.log(data.tracks.href);
+    	console.log("Artist(s): " + filteredData.artists[0].name + "\n" +
+    				"Song Name: " + filteredData.name + "\n" + 
+    				"Preview Link: " + filteredData.preview_url + "\n" +
+    				"Album: " + filteredData.album.name);
 	});
 };
 
 
-//		* Artist(s)
-// 		* The song's name
-// 		* A preview link of the song from Spotify
-// 		* The album that the song is from
 
