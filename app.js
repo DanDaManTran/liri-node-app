@@ -1,21 +1,24 @@
 var request = require("request");
 
 var action = process.argv[2];
+var value = process.argv[3];
 
 switch (action){
 	case "movie-this":
-		movies();
+		movies(value);
 		break;
 
 	case "spotify-this-song":
-		music();
+		music(value);
+		break;
+
+	case "do-what-it-says":
+		justDoIt();
 		break;
 }
 
 
-function movies() {
-	var movieName = process.argv[3];
-
+function movies(movieName) {
 	if(movieName===undefined){
 		movieName = "Mr. Nobody";
 	}
@@ -31,23 +34,22 @@ function movies() {
 	request(queryUrl, function(error, response, body) {
 	var data = JSON.parse(body);
 
-	if (!error && response.statusCode === 200) {
-		console.log("Title: " + data.Title + "\n" + 
-					"Year: " + data.Year + "\n" + 
-					"IMDB Rating: " + data.imdbRating + "\n" +
-					"Country: " + data.Country + "\n" +
-					"Language: " + data.Language + "\n" + 
-					"Plot: " + data.Plot + "\n" + 
-					"Actors: " + data.Actors + "\n" +
-					"Rotten Tomatoes: " + "Something" + "\n" +
-					"Roteen Tomatoes URL: " + "something");
-	  }
+		if (!error && response.statusCode === 200) {
+			console.log("Title: " + data.Title + "\n" + 
+						"Year: " + data.Year + "\n" + 
+						"IMDB Rating: " + data.imdbRating + "\n" +
+						"Country: " + data.Country + "\n" +
+						"Language: " + data.Language + "\n" + 
+						"Plot: " + data.Plot + "\n" + 
+						"Actors: " + data.Actors + "\n" +
+						"Rotten Tomatoes: " + "Something" + "\n" +
+						"Roteen Tomatoes URL: " + "something");
+		}
 	});
 };
 
-function music() {
+function music(trackName) {
 	var spotify = require('spotify');
- 	var trackName = process.argv[3];
 
  	if(trackName===undefined){
  		trackName = "I Saw The Sign";
@@ -65,6 +67,26 @@ function music() {
     				"Song Name: " + filteredData.name + "\n" + 
     				"Preview Link: " + filteredData.preview_url + "\n" +
     				"Album: " + filteredData.album.name);
+	});
+};
+
+function justDoIt() {
+	var fs = require("fs");
+
+	fs.readFile("random.txt", "utf8", function(err, data) {
+		var insturctions = data.split(",");
+		var whatToDO = insturctions[0];
+		var whatToInput = insturctions[1].substring(1, insturctions[1].length-1);
+
+		switch (whatToDO){
+			case "movie-this":
+				movies(whatToInput);
+				break;
+
+			case "spotify-this-song":
+				music(whatToInput);
+				break;
+		}
 	});
 };
 
