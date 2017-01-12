@@ -1,4 +1,5 @@
 var request = require("request");
+var Twitter = require('twitter');
 
 var action = process.argv[2];
 var value = process.argv[3];
@@ -14,6 +15,10 @@ switch (action){
 
 	case "do-what-it-says":
 		justDoIt();
+		break;
+
+	case "my-tweets":
+		tweets();
 		break;
 }
 
@@ -89,6 +94,18 @@ function justDoIt() {
 		}
 	});
 };
+
+function tweets() {
+	var client = new Twitter(require("./keys.js").twitterKeys);
+	// console.log(client);
+
+client.get('favorites/list', function(error, tweets, response) {
+  if (!error) {
+    console.log(tweets);
+  }
+});
+
+}
 
 
 

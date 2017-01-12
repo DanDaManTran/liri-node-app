@@ -1,0 +1,29 @@
+{
+  "name": "liri",
+  "version": "1.0.0",
+  "description": "liri is a simple version of siri that runs through twitter, spotify, and IMBD",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanDaManTran/liri-node-app.git"
+  },
+  "keywords": [
+    "movie-this",
+    "spotify-this-song",
+    "do-what-it-says",
+    "my-tweets"
+  ],
+  "author": "DanDaManTran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanDaManTran/liri-node-app/issues"
+  },
+  "homepage": "https://github.com/DanDaManTran/liri-node-app#readme",
+  "dependencies": {
+    "spotify": "^0.3.0",
+    "twitter": "^1.7.0"
+  }
+}
