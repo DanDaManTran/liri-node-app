@@ -99,9 +99,10 @@ function tweets() {
 	var client = new Twitter(require("./keys.js").twitterKeys);
 	// console.log(client);
 
-client.get('favorites/list', function(error, tweets, response) {
+client.get('users/show', "DanTran", function(error, tweets, response) {
   if (!error) {
-    console.log(tweets);
+	console.log(tweets);
+	console.log(response);
   }
 });
 
