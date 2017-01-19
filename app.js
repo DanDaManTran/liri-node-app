@@ -49,7 +49,7 @@ function movies(movieName) {
 	}
 
 	//we are inputing the movie name into the URL so it is easier to read when we requestion it.
-	var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&r=json";
+	var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&tomatoes=true&plot=short&r=json";
 
 	//this is the request to get the information about the movie 
 	request(queryUrl, function(error, response, body) {
@@ -67,8 +67,8 @@ function movies(movieName) {
 						"Language: " + data.Language + "\n" + 
 						"Plot: " + data.Plot + "\n" + 
 						"Actors: " + data.Actors + "\n" +
-						"Rotten Tomatoes: " + "Something" + "\n" +
-						"Roteen Tomatoes URL: " + "something");
+						"Rotten Tomatoes: " + data.tomatoRating + "\n" +
+						"Roteen Tomatoes URL: " + data.tomatoURL);
 
 			fs.appendFile("log.txt", "\n" + "Title: " + data.Title + "\n" + 
 						"Year: " + data.Year + "\n" + 
@@ -77,8 +77,8 @@ function movies(movieName) {
 						"Language: " + data.Language + "\n" + 
 						"Plot: " + data.Plot + "\n" + 
 						"Actors: " + data.Actors + "\n" +
-						"Rotten Tomatoes: " + "Something" + "\n" +
-						"Roteen Tomatoes URL: " + "something" + "\n" +
+						"Rotten Tomatoes: " + data.tomatoRating + "\n" +
+						"Roteen Tomatoes URL: " + data.tomatoURL + "\n" +
 						"-----------------------------------------------");
 		}
 	});

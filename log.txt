@@ -4,3 +4,28 @@ Song Name: Numb
 Preview Link: https://p.scdn.co/mp3-preview/e6ccf7717f8a167bfea4afc1bf7da1a0cd707fbb?cid=null
 Album: Meteora
 -----------------------------------------------
+Artist(s): Swedish Hit Makers
+Song Name: I Saw the Sign
+Preview Link: https://p.scdn.co/mp3-preview/67436272f57ef2aeb7f82dcfc3347a550d459b67?cid=null
+Album: I Saw the Sign
+-----------------------------------------------
+Title: Batman
+Year: 1989
+IMDB Rating: 7.6
+Country: USA, UK
+Language: English, French
+Plot: The Dark Knight of Gotham City begins his war on crime with his first major enemy being the clownishly homicidal Joker.
+Actors: Michael Keaton, Jack Nicholson, Kim Basinger, Robert Wuhl
+Rotten Tomatoes: 6.6
+Roteen Tomatoes URL: http://www.rottentomatoes.com/m/1001781-batman/
+-----------------------------------------------
+Title: Batman
+Year: 1989
+IMDB Rating: 7.6
+Country: USA, UK
+Language: English, French
+Plot: The Dark Knight of Gotham City begins his war on crime with his first major enemy being the clownishly homicidal Joker.
+Actors: Michael Keaton, Jack Nicholson, Kim Basinger, Robert Wuhl
+Rotten Tomatoes: 6.6
+Roteen Tomatoes URL: http://www.rottentomatoes.com/m/1001781-batman/
+-----------------------------------------------
